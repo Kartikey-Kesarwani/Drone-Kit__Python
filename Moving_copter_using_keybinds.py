@@ -53,12 +53,6 @@ def set_ned_velocity(duration,x,y,z):
         vehicle.send_mavlink(msg)
         time.sleep(1)
 def condition_yaw(heading, relative=False):
-
-    if relative:
-        is_relative = 1 #yaw relative to direction of travel
-    else:
-        is_relative = 0 #yaw is an absolute angle
-    # create the CONDITION_YAW command using command_long_encode()
     msg = vehicle.message_factory.command_long_encode(
         0, 0,    # target system, target component
         mavutil.mavlink.MAV_CMD_CONDITION_YAW, #command
